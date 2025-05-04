@@ -41,6 +41,7 @@ bool isNumericStr(const std::string& str) {
 	return true;
 }
 
+
 // Функция для получения кода авиакомпании 
 // принимает две строки: входную и строку для результата (кода)
 // возвращае 0 при успехе и 1 при неравильных первых символах
@@ -53,9 +54,9 @@ int getCode(const std::string& str, std::string& output) {
 	
 	if (std::isdigit(str[0]) && (std::isdigit(str[1]) || 1 == str.size())) {
 		// Код отсутствует
-	} else if (std::isalpha(str[0]) && std::isalpha(str[1])) {
+	} else if (str.size() > 1 && std::isalpha(str[0]) && std::isalpha(str[1])) {
 		int tmp_key_lenght = 2;
-		if (std::isalpha(str[2])) {
+		if (str.size() > 2 && std::isalpha(str[2])) {
 			if (!std::isdigit(str[3])) {
 				// Код вида ([A-Z] [A-Z] [A-Z] ![0-9])
 				return 1;
@@ -69,7 +70,7 @@ int getCode(const std::string& str, std::string& output) {
 			auto ch = str[i];
 			output += std::toupper(ch);
 		}
-	} else if ((std::isdigit(str[0]) && std::isalpha(str[1])) || (std::isalpha(str[0]) && std::isdigit(str[1]))){
+	} else if (str.size() > 1 && (std::isdigit(str[0]) && std::isalpha(str[1])) || (std::isalpha(str[0]) && std::isdigit(str[1]))){
 		// Код вида ([A-Z 0-9] [A-Z 0-9] space)  или ([A-Z 0-9] [A-Z 0-9])
 		for (int i = 0; i < 2; ++i) {
 			auto ch = str[i];
@@ -85,6 +86,7 @@ int getCode(const std::string& str, std::string& output) {
 	
 	return ret;
 }
+
 
 // Функция для удаления пробела (который пришёл из кода авиакомпании) в номере рейса
 void removeFirstSpace(std::string& str) {
