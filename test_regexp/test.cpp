@@ -126,11 +126,11 @@ int main() {
 
 	flight1 = str1.substr(code1.size());
 	
-	// Удаляем лидирующие нули и пробелы из номера рейса
+	// Удаляем лидирующие нули из номера рейса и пробелы из кода
 	removeLastSpace(code1);
-    flight1 = removeLeadingZeros(flight1);
+	    flight1 = removeLeadingZeros(flight1);
 
-    if (!isNumericStr(flight1) || flight1.size() < 1) {
+	if (!isNumericStr(flight1) || flight1.size() < 1) {
 		std::cout << "Неверный формат первой строки." << std::endl;
 		std::cout << "Номер рейса может быть представлен набором цифр от 0 до 9 размером от 1 до 5 цифры." << std::endl;
 		return 1;
@@ -159,11 +159,11 @@ int main() {
 	}
 
 	flight2 = str2.substr(code2.size());
-	// Удаляем лидирующие нули и пробелы из номера рейса
+	// Удаляем лидирующие нули из номера рейса и пробелы из кода
 	removeLastSpace(code2);
-    flight2 = removeLeadingZeros(flight2);
+    	flight2 = removeLeadingZeros(flight2);
 
-    if (!isNumericStr(flight2) || flight2.size() < 1) {
+	if (!isNumericStr(flight2) || flight2.size() < 1) {
 		std::cout << "Неверный формат второй строки." << std::endl;
 		std::cout << "Номер рейса может быть представлен набором цифр от 0 до 9 размером от 1 до 5 цифры." << std::endl;
 		return 1;
