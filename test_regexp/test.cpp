@@ -50,7 +50,7 @@ int getCode(const std::string& str, std::string& output) {
 		return 1;
 	}
 	
-		std::regex codePattern
+	std::regex codePattern
 		(R"(([A-Z][A-Z][A-Z])|([A-Z][A-Z] )|([A-Z][A-Z])|([A-Z][0-9] )|([0-9][A-Z] )|([A-Z][0-9])|([0-9][A-Z]))");
 	std::smatch codeMatch;
 	
